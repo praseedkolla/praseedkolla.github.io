@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Praseed — Full-Stack Developer & Chrome Extension Specialist</title>
+    <meta name="description" content="Kolla Sai Praseed — Full-Stack Developer & Chrome Extension Specialist based in Hyderabad. I build Chrome extensions, web apps, APIs, and automation tools for clients worldwide.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kolla Sai Praseed — Full-Stack Developer & Chrome Extension Specialist">
+    <meta property="og:description" content="I build Chrome extensions, web apps, APIs, and automation tools. Fast delivery, clean code. Based in Hyderabad, working worldwide.">
+    <meta property="og:locale" content="en_IN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kolla Sai Praseed — Full-Stack Developer">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230a0a0b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-family='monospace' font-size='16' font-weight='bold' fill='%234ade80'%3ESP%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Kolla Sai Praseed","jobTitle":"Full-Stack Developer","email":"praseedsai@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Hyderabad","addressCountry":"IN"},"knowsAbout":["Chrome Extensions","React","Next.js","Node.js","Python","Web Development"]}</script>
+    <style>
+        :root{--bg:#0a0a0b;--surface:#141416;--surface-2:#1c1c20;--border:#2a2a2e;--text:#e8e8ec;--text-dim:#8b8b96;--accent:#4ade80;--accent-dim:rgba(74,222,128,0.1);--accent-glow:rgba(74,222,128,0.15);--orange:#fb923c}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+        body::after{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999}
+        .container{max-width:1100px;margin:0 auto;padding:0 24px}
+        .skip-link{position:absolute;top:-100%;left:16px;background:var(--accent);color:var(--bg);padding:8px 16px;border-radius:4px;font-weight:700;text-decoration:none;z-index:10000;transition:top 0.2s}
+        .skip-link:focus{top:16px}
+        :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+        :focus:not(:focus-visible){outline:none}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}.fade-up{opacity:1;transform:none}}
+        nav{position:fixed;top:0;width:100%;z-index:100;padding:20px 0;background:rgba(10,10,11,0.85);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+        nav .container{display:flex;justify-content:space-between;align-items:center}
+        .nav-logo{font-family:'Space Mono',monospace;font-size:18px;font-weight:700;color:var(--accent);text-decoration:none}
+        .nav-links{display:flex;gap:32px;list-style:none}
+        .nav-links a{color:var(--text-dim);text-decoration:none;font-size:14px;font-weight:500;transition:color 0.3s}
+        .nav-links a:hover{color:var(--accent)}
+        .status-badge{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--accent);background:var(--accent-dim);padding:6px 14px;border-radius:100px;border:1px solid rgba(74,222,128,0.2)}
+        .status-dot{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+        .nav-toggle-input{display:none}
+        .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;order:3}
+        .nav-hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s}
+        .nav-toggle-input:checked~.nav-hamburger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+        .nav-toggle-input:checked~.nav-hamburger span:nth-child(2){opacity:0}
+        .nav-toggle-input:checked~.nav-hamburger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+        .hero{padding:160px 0 100px;position:relative}
+        .hero-grid-bg{position:absolute;top:0;left:0;right:0;bottom:0;background-image:linear-gradient(rgba(74,222,128,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(74,222,128,0.03) 1px,transparent 1px);background-size:60px 60px;-webkit-mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%);mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%)}
+        .hero-label{font-family:'Space Mono',monospace;font-size:13px;color:var(--accent);text-transform:uppercase;letter-spacing:3px;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+        .hero-label::before{content:'';width:40px;height:1px;background:var(--accent)}
+        .hero h1{font-size:clamp(42px,6vw,72px);font-weight:700;line-height:1.1;margin-bottom:24px;letter-spacing:-2px}
+        .hero h1 .highlight{color:var(--accent)}
+        .hero-desc{font-size:18px;color:var(--text-dim);max-width:560px;line-height:1.7;margin-bottom:40px}
+        .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+        .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--accent);color:var(--bg);font-weight:700;font-size:15px;border-radius:8px;text-decoration:none;transition:all 0.3s;border:none;cursor:pointer}
+        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+        .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text);font-weight:500;font-size:15px;border-radius:8px;text-decoration:none;border:1px solid var(--border);transition:all 0.3s}
+        .btn-secondary:hover{border-color:var(--accent);background:var(--accent-dim)}
+        .stats{display:flex;gap:48px;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)}
+        .stat-number{font-family:'Space Mono',monospace;font-size:32px;font-weight:700;color:var(--accent)}
+        .stat-label{font-size:13px;color:var(--text-dim);margin-top:4px}
+        .section{padding:100px 0}
+        .section-label{font-family:'Space Mono',monospace;font-size:12px;color:var(--accent);text-transform:uppercase;letter-spacing:3px;margin-bottom:16px}
+        .section-title{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:60px;letter-spacing:-1px}
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+        .service-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:32px;transition:all 0.3s;position:relative;overflow:hidden}
+        .service-card:hover{border-color:rgba(74,222,128,0.3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+        .service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity 0.3s}
+        .service-card:hover::before{opacity:1}
+        .service-icon{width:48px;height:48px;background:var(--accent-dim);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px}
+        .service-card h3{font-size:18px;font-weight:700;margin-bottom:10px}
+        .service-card p{font-size:14px;color:var(--text-dim);line-height:1.7}
+        .service-tag{display:inline-block;margin-top:16px;font-size:12px;color:var(--accent);background:var(--accent-dim);padding:4px 10px;border-radius:4px;font-family:'Space Mono',monospace}
+        .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+        .project-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:all 0.3s}
+        .project-card:hover{border-color:rgba(74,222,128,0.3);transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,0.3)}
+        .project-preview{height:200px;background:var(--surface-2);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+        .project-preview-1{background:linear-gradient(135deg,#0f172a,#1e1b4b)}
+        .project-preview-2{background:linear-gradient(135deg,#1a1a2e,#16213e)}
+        .project-preview-3{background:linear-gradient(135deg,#0c1222,#1a2332)}
+        .preview-mockup{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);background:rgba(0,0,0,0.4);padding:16px 20px;border-radius:8px;border:1px solid rgba(74,222,128,0.15);text-align:left;max-width:260px}
+        .preview-mockup .line{margin:3px 0;opacity:0.7}
+        .preview-mockup .line.highlight-line{color:var(--orange);opacity:1}
+        .project-info{padding:24px}
+        .project-type{font-family:'Space Mono',monospace;font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+        .project-info h3{font-size:20px;font-weight:700;margin-bottom:8px}
+        .project-info p{font-size:14px;color:var(--text-dim);margin-bottom:16px}
+        .tech-stack{display:flex;gap:8px;flex-wrap:wrap}
+        .tech-tag{font-size:11px;padding:4px 10px;background:var(--surface-2);border:1px solid var(--border);border-radius:4px;color:var(--text-dim);font-family:'Space Mono',monospace}
+        .process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+        .step{padding:32px;background:var(--surface);border:1px solid var(--border);border-radius:12px;position:relative}
+        .step-number{font-family:'Space Mono',monospace;font-size:48px;font-weight:700;color:var(--accent);opacity:0.2;position:absolute;top:16px;right:20px}
+        .step h3{font-size:16px;font-weight:700;margin-bottom:8px}
+        .step p{font-size:13px;color:var(--text-dim);line-height:1.6}
+        .cta-section{text-align:center;padding:100px 0}
+        .cta-box{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:60px 40px;position:relative;overflow:hidden}
+        .cta-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+        .cta-glow{position:absolute;width:400px;height:400px;background:radial-gradient(circle,var(--accent-glow),transparent 70%);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+        .cta-box h2{font-size:clamp(28px,4vw,40px);font-weight:700;margin-bottom:16px;letter-spacing:-1px;position:relative}
+        .cta-box p{color:var(--text-dim);font-size:16px;margin-bottom:32px;position:relative}
+        .cta-social-links{margin-top:24px;display:flex;justify-content:center;gap:24px}
+        .cta-social-links a{color:var(--text-dim);font-size:14px;text-decoration:none;transition:color 0.3s}
+        .cta-social-links a:hover{color:var(--accent)}
+        footer{padding:40px 0;border-top:1px solid var(--border)}
+        footer .container{display:flex;justify-content:space-between;align-items:center}
+        footer p{font-size:13px;color:var(--text-dim)}
+        .footer-links{display:flex;gap:24px}
+        .footer-links a{color:var(--text-dim);text-decoration:none;font-size:13px;transition:color 0.3s}
+        .footer-links a:hover{color:var(--accent)}
+        @media(max-width:768px){
+            .nav-hamburger{display:flex}
+            .status-badge{display:none}
+            .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:var(--surface);border-bottom:1px solid var(--border);flex-direction:column;gap:0;padding:16px 24px}
+            .nav-links li a{display:block;padding:12px 0;font-size:16px;border-bottom:1px solid var(--border)}
+            .nav-links li:last-child a{border-bottom:none}
+            .nav-toggle-input:checked~.nav-links{display:flex}
+            .stats{flex-direction:column;gap:24px}
+            .hero-cta{flex-direction:column}
+            .btn-primary,.btn-secondary{text-align:center;justify-content:center}
+            footer .container{flex-direction:column;gap:16px;text-align:center}
+        }
+        .fade-up{opacity:0;transform:translateY(30px);animation:fadeUp 0.8s ease forwards}
+        .fade-up-delay-1{animation-delay:0.1s}
+        .fade-up-delay-2{animation-delay:0.2s}
+        .fade-up-delay-3{animation-delay:0.3s}
+        @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav aria-label="Main navigation">
+        <div class="container">
+            <a href="#" class="nav-logo">SP.</a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Toggle navigation">
+            <label for="nav-toggle" class="nav-hamburger" aria-label="Open navigation"><span></span><span></span><span></span></label>
+            <ul class="nav-links">
+                <li><a href="#services" onclick="document.getElementById('nav-toggle').checked=false">Services</a></li>
+                <li><a href="#work" onclick="document.getElementById('nav-toggle').checked=false">Work</a></li>
+                <li><a href="#process" onclick="document.getElementById('nav-toggle').checked=false">Process</a></li>
+                <li><a href="#contact" onclick="document.getElementById('nav-toggle').checked=false">Contact</a></li>
+            </ul>
+            <div class="status-badge"><div class="status-dot" aria-hidden="true"></div>Available for work</div>
+        </div>
+    </nav>
+    <main id="main-content">
+    <section class="hero"><div class="hero-grid-bg"></div><div class="container">
+        <div class="hero-label fade-up">Full-Stack Developer & Extension Specialist</div>
+        <h1 class="fade-up fade-up-delay-1">I build tools that<br><span class="highlight">solve real problems.</span></h1>
+        <p class="hero-desc fade-up fade-up-delay-2">From Chrome extensions to full web applications — I ship fast, clean, production-ready code. Based in Hyderabad, working with clients worldwide.</p>
+        <div class="hero-cta fade-up fade-up-delay-3">
+            <a href="#contact" class="btn-primary">Start a Project <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a href="#work" class="btn-secondary">View My Work</a>
+        </div>
+        <div class="stats fade-up fade-up-delay-3">
+            <div><div class="stat-number">15+</div><div class="stat-label">Projects Delivered</div></div>
+            <div><div class="stat-number">48hr</div><div class="stat-label">Avg. Turnaround</div></div>
+            <div><div class="stat-number">100%</div><div class="stat-label">Client Satisfaction</div></div>
+        </div>
+    </div></section>
+    <section class="section" id="services"><div class="container">
+        <div class="section-label">What I Do</div><h2 class="section-title">Services</h2>
+        <div class="services-grid">
+            <div class="service-card"><div class="service-icon">🧩</div><h3>Chrome Extensions</h3><p>Custom browser extensions that automate workflows, enhance productivity, and integrate with APIs. From concept to Chrome Web Store.</p><span class="service-tag">Most Popular</span></div>
+            <div class="service-card"><div class="service-icon">⚡</div><h3>Web Applications</h3><p>Full-stack web apps with modern frameworks. Dashboards, SaaS tools, admin panels — responsive and production-ready.</p><span class="service-tag">React / Next.js</span></div>
+            <div class="service-card"><div class="service-icon">🎯</div><h3>Landing Pages</h3><p>High-converting landing pages and marketing sites. Fast load times, clean design, optimized for conversions.</p><span class="service-tag">Fast Delivery</span></div>
+            <div class="service-card"><div class="service-icon">🤖</div><h3>Automation & Bots</h3><p>Web scrapers, chatbots, API integrations, and workflow automation tools that save hours of manual work.</p><span class="service-tag">AI-Powered</span></div>
+            <div class="service-card"><div class="service-icon">📱</div><h3>Mobile Apps</h3><p>Cross-platform mobile applications for Android and iOS. Clean UI, smooth performance, real-world utility.</p><span class="service-tag">Android / React Native</span></div>
+            <div class="service-card"><div class="service-icon">🔌</div><h3>API Development</h3><p>RESTful APIs, third-party integrations, and backend systems. Scalable, documented, and secure.</p><span class="service-tag">Node.js / Python</span></div>
+        </div>
+    </div></section>
+    <section class="section" id="work" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)"><div class="container">
+        <div class="section-label">Selected Work</div><h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card"><div class="project-preview project-preview-1"><div class="preview-mockup"><div class="line">// Analytics Dashboard</div><div class="line highlight-line">→ Real-time data charts</div><div class="line">→ KPI tracking widgets</div><div class="line">→ Export & reporting</div><div class="line" style="opacity:0.4">stack: react + charts ✓</div></div></div><div class="project-info"><div class="project-type">Web Application</div><h3>SalesVue — Analytics Dashboard</h3><p>A real-time business analytics dashboard with interactive charts, KPI widgets, team performance tracking, and automated PDF reports.</p><div class="tech-stack"><span class="tech-tag">React</span><span class="tech-tag">Chart.js</span><span class="tech-tag">REST API</span><span class="tech-tag">Tailwind</span></div></div></div>
+            <div class="project-card"><div class="project-preview project-preview-2"><div class="preview-mockup"><div class="line">// QuickHarvest Extension</div><div class="line highlight-line">→ Extract emails from pages</div><div class="line">→ One-click CSV export</div><div class="line">→ Smart deduplication</div><div class="line" style="opacity:0.4">users: chrome store ✓</div></div></div><div class="project-info"><div class="project-type">Chrome Extension</div><h3>QuickHarvest — Lead Scraper</h3><p>A Chrome extension that extracts emails, phone numbers, and social links from any webpage. One-click export to CSV with smart deduplication.</p><div class="tech-stack"><span class="tech-tag">JavaScript</span><span class="tech-tag">Chrome API</span><span class="tech-tag">Content Script</span><span class="tech-tag">CSV</span></div></div></div>
+            <div class="project-card"><div class="project-preview project-preview-3"><div class="preview-mockup"><div class="line">// FinFlow Landing</div><div class="line highlight-line">→ Conversion-optimized</div><div class="line">→ 98 Lighthouse score</div><div class="line">→ Stripe integration</div><div class="line" style="opacity:0.4">type: saas landing ✓</div></div></div><div class="project-info"><div class="project-type">Landing Page</div><h3>FinFlow — SaaS Landing Page</h3><p>A high-converting SaaS landing page for a fintech startup. Animated sections, pricing tables, testimonial carousel, and Stripe checkout ready.</p><div class="tech-stack"><span class="tech-tag">HTML/CSS</span><span class="tech-tag">JavaScript</span><span class="tech-tag">Animations</span><span class="tech-tag">Responsive</span></div></div></div>
+        </div>
+    </div></section>
+    <section class="section" id="process"><div class="container">
+        <div class="section-label">How I Work</div><h2 class="section-title">Simple. Fast. Reliable.</h2>
+        <div class="process-steps">
+            <div class="step"><div class="step-number">01</div><h3>You Share the Idea</h3><p>Tell me what you need — a feature, a tool, an extension. I'll ask the right questions to understand the scope.</p></div>
+            <div class="step"><div class="step-number">02</div><h3>I Build It Fast</h3><p>Most projects delivered in 24–48 hours. Clean code, modern tech stack, no shortcuts.</p></div>
+            <div class="step"><div class="step-number">03</div><h3>You Review & Launch</h3><p>Up to 3 rounds of revisions included. I handle deployment, publishing, and full handover documentation.</p></div>
+            <div class="step"><div class="step-number">04</div><h3>Ongoing Support</h3><p>Bug fixes, updates, and feature additions. I don't disappear after delivery.</p></div>
+        </div>
+    </div></section>
+    <section class="cta-section" id="contact"><div class="container"><div class="cta-box"><div class="cta-glow"></div>
+        <h2>Let's Build Something<br>Together.</h2><p>Have a project in mind? I respond within 2 hours.</p>
+        <a href="mailto:praseedsai@gmail.com" class="btn-primary" style="position:relative">Get In Touch <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="cta-social-links">
+            <a href="https://www.fiverr.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">Fiverr</a>
+            <a href="https://www.upwork.com/freelancers/YOUR_ID" target="_blank" rel="noopener noreferrer">Upwork</a>
+            <a href="https://github.com/YOUR_HANDLE" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+    </div></div></section>
+    </main>
+    <footer><div class="container"><p>© <span id="year"></span> Kolla Sai Praseed. Hyderabad, India.</p><div class="footer-links"><a href="mailto:praseedsai@gmail.com">Email</a><a href="https://github.com/YOUR_HANDLE" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" rel="noopener noreferrer">LinkedIn</a></div></div></footer>
+    <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

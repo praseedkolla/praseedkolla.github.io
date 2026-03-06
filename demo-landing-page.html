@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinFlow — Smart Finance for Modern Teams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fafaf9;
+            --dark: #18181b;
+            --dim: #71717a;
+            --accent: #2563eb;
+            --accent-light: #dbeafe;
+            --accent-dark: #1d4ed8;
+            --green: #16a34a;
+            --surface: #ffffff;
+            --border: #e4e4e7;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        nav {
+            padding: 18px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: rgba(250, 250, 249, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo-mark {
+            width: 30px; height: 30px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: white;
+            font-size: 16px;
+            font-weight: 800;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dim);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--dark); }
+
+        .nav-cta {
+            display: flex; gap: 10px; align-items: center;
+        }
+
+        .btn-ghost {
+            padding: 9px 18px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .btn-fill {
+            padding: 9px 22px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            background: var(--accent);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-fill:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+        /* HERO */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 28px;
+            animation: fadeDown 0.6s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 6vw, 68px);
+            font-weight: 800;
+            line-height: 1.08;
+            letter-spacing: -2.5px;
+            margin-bottom: 20px;
+            animation: fadeDown 0.6s ease 0.1s both;
+        }
+
+        .hero h1 .accent { color: var(--accent); }
+
+        .hero-sub {
+            font-size: 19px;
+            color: var(--dim);
+            max-width: 540px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
+            animation: fadeDown 0.6s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            animation: fadeDown 0.6s ease 0.3s both;
+        }
+
+        .btn-large {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 700;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .btn-large.primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-large.primary:hover { background: var(--accent-dark); transform: translateY(-2px); box-shadow: 0 12px 24px rgba(37, 99, 235, 0.25); }
+
+        .btn-large.outline {
+            background: white;
+            color: var(--dark);
+            border: 1.5px solid var(--border);
+        }
+
+        .btn-large.outline:hover { border-color: var(--accent); color: var(--accent); }
+
+        .hero-social-proof {
+            margin-top: 40px;
+            font-size: 14px;
+            color: var(--dim);
+            animation: fadeDown 0.6s ease 0.4s both;
+        }
+
+        .avatars {
+            display: inline-flex;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .avatar-circle {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            border: 2px solid white;
+            margin-left: -8px;
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            text-align: center;
+            line-height: 28px;
+        }
+
+        .avatar-circle:first-child { margin-left: 0; }
+
+        /* HERO SCREENSHOT */
+        .hero-screenshot {
+            margin-top: 60px;
+            position: relative;
+            animation: fadeUp 0.8s ease 0.5s both;
+        }
+
+        .screenshot-wrapper {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 12px;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05);
+        }
+
+        .screenshot-bar {
+            display: flex;
+            gap: 6px;
+            padding: 0 4px 10px;
+        }
+
+        .screenshot-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+        }
+
+        .screenshot-inner {
+            background: #1a1d27;
+            border-radius: 10px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7084;
+            font-size: 15px;
+            font-weight: 500;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screenshot-inner::after {
+            content: '📊 Dashboard Preview — Interactive charts, KPI widgets, real-time data';
+            position: absolute;
+            color: #52525b;
+        }
+
+        .screenshot-grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* LOGOS */
+        .logos-section {
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logos-label {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--dim);
+            margin-bottom: 28px;
+        }
+
+        .logos-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+            opacity: 0.4;
+        }
+
+        .logo-item {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--dark);
+            letter-spacing: -0.5px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 100px 0;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .features-header h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            padding: 32px;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.06);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .feature-icon {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--dim);
+            line-height: 1.7;
+        }
+
+        /* PRICING */
+        .pricing {
+            padding: 100px 0;
+            background: white;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .pricing-header h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .pricing-header p {
+            color: var(--dim);
+            margin-top: 8px;
+            font-size: 16px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            padding: 36px 28px;
+            position: relative;
+            background: white;
+            transition: all 0.3s;
+        }
+
+        .price-card:hover { transform: translateY(-4px); }
+
+        .price-card.popular {
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.1);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 14px;
+            border-radius: 100px;
+        }
+
+        .price-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .price-desc {
+            font-size: 13px;
+            color: var(--dim);
+            margin-bottom: 20px;
+        }
+
+        .price-amount {
+            font-size: 44px;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 4px;
+        }
+
+        .price-period {
+            font-size: 14px;
+            color: var(--dim);
+            margin-bottom: 24px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 28px;
+        }
+
+        .price-features li {
+            font-size: 14px;
+            padding: 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #52525b;
+        }
+
+        .check { color: var(--green); font-weight: 700; }
+
+        .price-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+        }
+
+        .price-btn.outline-btn {
+            background: white;
+            color: var(--dark);
+            border: 1.5px solid var(--border);
+        }
+
+        .price-btn.outline-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+        .price-btn.fill-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+        }
+
+        .price-btn.fill-btn:hover { background: var(--accent-dark); }
+
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 100px 0;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .testimonials-header h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+        }
+
+        .stars { font-size: 14px; margin-bottom: 12px; }
+
+        .testimonial-text {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #3f3f46;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .author-avatar {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            display: flex; align-items: center; justify-content: center;
+        }
+
+        .author-name { font-size: 14px; font-weight: 700; }
+        .author-role { font-size: 12px; color: var(--dim); }
+
+        /* CTA */
+        .final-cta {
+            padding: 100px 0;
+            text-align: center;
+            background: var(--dark);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.15), transparent 70%);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(32px, 4.5vw, 48px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .final-cta p {
+            font-size: 17px;
+            color: #a1a1aa;
+            margin-bottom: 32px;
+            position: relative;
+        }
+
+        .final-cta .btn-large.primary {
+            position: relative;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p { font-size: 13px; color: var(--dim); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .features-grid, .pricing-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .hero-screenshot { display: none; }
+            .logos-row { gap: 24px; }
+        }
+
+        /* Animations */
+        @keyframes fadeDown {
+            from { opacity: 0; transform: translateY(-16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-mark">F</div>
+                FinFlow
+            </a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#">Docs</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="btn-ghost">Log In</button>
+                <button class="btn-fill">Start Free →</button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">🚀 Now with AI-powered forecasting</div>
+            <h1>Finance tools built<br>for <span class="accent">modern teams.</span></h1>
+            <p class="hero-sub">Track spending, automate invoices, and forecast cash flow — all in one beautiful dashboard. No spreadsheets required.</p>
+            <div class="hero-cta">
+                <button class="btn-large primary">Start Free Trial →</button>
+                <button class="btn-large outline">Watch Demo</button>
+            </div>
+            <div class="hero-social-proof">
+                <span class="avatars">
+                    <span class="avatar-circle" style="background:#2563eb">AK</span>
+                    <span class="avatar-circle" style="background:#16a34a">RJ</span>
+                    <span class="avatar-circle" style="background:#9333ea">MS</span>
+                    <span class="avatar-circle" style="background:#ea580c">PD</span>
+                </span>
+                Trusted by <strong>2,400+</strong> teams worldwide
+            </div>
+
+            <div class="hero-screenshot">
+                <div class="screenshot-wrapper">
+                    <div class="screenshot-bar">
+                        <div class="screenshot-dot" style="background:#ef4444"></div>
+                        <div class="screenshot-dot" style="background:#eab308"></div>
+                        <div class="screenshot-dot" style="background:#22c55e"></div>
+                    </div>
+                    <div class="screenshot-inner">
+                        <div class="screenshot-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="logos-section">
+        <div class="container">
+            <div class="logos-label">Trusted by forward-thinking companies</div>
+            <div class="logos-row">
+                <div class="logo-item">Vercel</div>
+                <div class="logo-item">Linear</div>
+                <div class="logo-item">Notion</div>
+                <div class="logo-item">Stripe</div>
+                <div class="logo-item">Figma</div>
+                <div class="logo-item">Loom</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <div class="features-header">
+                <div class="section-badge">Features</div>
+                <h2>Everything your finance<br>team actually needs.</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:var(--accent-light)">📊</div>
+                    <h3>Real-Time Dashboard</h3>
+                    <p>See your revenue, expenses, and cash flow update live. No more waiting for month-end reports.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#dcfce7">🧾</div>
+                    <h3>Auto Invoicing</h3>
+                    <p>Generate, send, and track invoices automatically. Smart reminders for overdue payments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#fae8ff">🤖</div>
+                    <h3>AI Forecasting</h3>
+                    <p>Predict cash flow 90 days ahead with machine learning trained on your spending patterns.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#fff7ed">💳</div>
+                    <h3>Expense Tracking</h3>
+                    <p>Snap receipts, auto-categorize transactions, and set budgets that actually work.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#fef9c3">📈</div>
+                    <h3>Revenue Analytics</h3>
+                    <p>Break down revenue by product, customer, region, or any dimension that matters to you.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon" style="background:#f0fdf4">🔗</div>
+                    <h3>Bank Sync</h3>
+                    <p>Connect 12,000+ banks and financial institutions. Transactions sync every 15 minutes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <div class="section-badge">Pricing</div>
+                <h2>Simple, transparent pricing.</h2>
+                <p>No hidden fees. Cancel anytime.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <div class="price-desc">For small teams getting started</div>
+                    <div class="price-amount">$19</div>
+                    <div class="price-period">per month, billed annually</div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Up to 5 team members</li>
+                        <li><span class="check">✓</span> Basic dashboard</li>
+                        <li><span class="check">✓</span> Invoice generator</li>
+                        <li><span class="check">✓</span> Bank sync (2 accounts)</li>
+                        <li><span class="check">✓</span> Email support</li>
+                    </ul>
+                    <a class="price-btn outline-btn">Get Started</a>
+                </div>
+                <div class="price-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Pro</h3>
+                    <div class="price-desc">For growing businesses</div>
+                    <div class="price-amount">$49</div>
+                    <div class="price-period">per month, billed annually</div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Up to 25 team members</li>
+                        <li><span class="check">✓</span> Advanced analytics</li>
+                        <li><span class="check">✓</span> AI forecasting</li>
+                        <li><span class="check">✓</span> Unlimited bank sync</li>
+                        <li><span class="check">✓</span> Priority support</li>
+                    </ul>
+                    <a class="price-btn fill-btn">Get Started</a>
+                </div>
+                <div class="price-card">
+                    <h3>Enterprise</h3>
+                    <div class="price-desc">For large organizations</div>
+                    <div class="price-amount">Custom</div>
+                    <div class="price-period">tailored to your needs</div>
+                    <ul class="price-features">
+                        <li><span class="check">✓</span> Unlimited team members</li>
+                        <li><span class="check">✓</span> Custom integrations</li>
+                        <li><span class="check">✓</span> Dedicated account manager</li>
+                        <li><span class="check">✓</span> SLA guarantee</li>
+                        <li><span class="check">✓</span> On-premise option</li>
+                    </ul>
+                    <a class="price-btn outline-btn">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="testimonials-header">
+                <div class="section-badge">Testimonials</div>
+                <h2>Loved by finance teams.</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"FinFlow replaced three different tools for us. The AI forecasting alone saved us from a cash crunch last quarter."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background:#2563eb">AK</div>
+                        <div>
+                            <div class="author-name">Amit Kumar</div>
+                            <div class="author-role">CFO, TechScale</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"We went from spending 20 hours on month-end reports to 20 minutes. The dashboard is genuinely beautiful."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background:#16a34a">RJ</div>
+                        <div>
+                            <div class="author-name">Rachel Jung</div>
+                            <div class="author-role">Head of Finance, Bloom</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p class="testimonial-text">"The invoicing automation alone pays for itself. We've reduced overdue payments by 40% since switching."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar" style="background:#9333ea">MS</div>
+                        <div>
+                            <div class="author-name">Marco Santos</div>
+                            <div class="author-role">CEO, Vendora</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ready to take control<br>of your finances?</h2>
+            <p>Start your 14-day free trial. No credit card required.</p>
+            <button class="btn-large primary">Start Free Trial →</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2026 FinFlow. Built by Sai Praseed.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
